@@ -164,13 +164,15 @@ System.register([], function (_export, _context) {
   }
 
   function onGameStarted(cc, settings) {
+	document.getElementById("splash").style.display = 'block';
     window._CCSettings = undefined;
     cc.view.resizeWithBrowserSize(true);
     var launchScene = settings.launchScene; // load scene
 
     cc.director.loadScene(launchScene, null, function () {
       cc.view.setDesignResolutionSize(1080, 1920, 2);
-      console.log("Success to load scene: ".concat(launchScene));
+	  document.getElementById("splash").style.display = 'none';
+      //console.log("Success to load scene: ".concat(launchScene));
     });
   }
 
