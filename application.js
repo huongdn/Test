@@ -9,9 +9,11 @@ System.register([], function (_export, _context) {
     // NOTE: before here we shall not import any module!
     var promise = Promise.resolve();
     promise = promise.then(function () {
+      debug.log("topLevelImport" + Date()[Symbol.toPrimitive]('string'));
       return topLevelImport('wait-for-ammo-instantiation');
     }).then(function (_ref2) {
       var waitForAmmoInstantiation = _ref2["default"];
+      debug.log("waitForAmmoInstantiation");
       return waitForAmmoInstantiation(fetchWasm(''));
     });
     return promise.then(function () {
@@ -25,22 +27,29 @@ System.register([], function (_export, _context) {
       var settings;
       var cc;
       return Promise.resolve().then(function () {
+        debug.log("topLevelImport 1" + Date()[Symbol.toPrimitive]('string'));
         return topLevelImport('cc');
       }).then(function (engine) {
         cc = engine;
+        debug.log("loadSettingsJson" + Date()[Symbol.toPrimitive]('string'));
         return loadSettingsJson(cc);
       }).then(function () {
         settings = window._CCSettings;
+        debug.log("initializeGame" + Date()[Symbol.toPrimitive]('string'));
         return initializeGame(cc, settings, findCanvas).then(function () {
           if (settings.scriptPackages) {
+            debug.log("loadModulePacks" + Date()[Symbol.toPrimitive]('string'));
             return loadModulePacks(settings.scriptPackages);
           }
         }).then(function () {
+          debug.log("loadJsList" + Date()[Symbol.toPrimitive]('string'));
           return loadJsList(settings.jsList);
         }).then(function () {
+          debug.log("loadAssetBundle" + Date()[Symbol.toPrimitive]('string'));
           return loadAssetBundle(settings.hasResourcesBundle, settings.hasStartSceneBundle);
         }).then(function () {
           return cc.game.run(function () {
+            debug.log("onGameStarted" + Date()[Symbol.toPrimitive]('string'));
             return onGameStarted(cc, settings);
           });
         });
