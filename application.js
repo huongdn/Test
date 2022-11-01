@@ -8,59 +8,33 @@ System.register([], function (_export, _context) {
         fetchWasm = _ref.fetchWasm;
     // NOTE: before here we shall not import any module!
     var promise = Promise.resolve();
-    var date;
-    promise = promise.then(function () {
-      date = new Date();
-      console.log('topLevelImport ' + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
-      return topLevelImport('wait-for-ammo-instantiation');
-    }).then(function (_ref2) {
-      var waitForAmmoInstantiation = _ref2["default"];
-      date = new Date();
-      console.log("waitForAmmoInstantiation" + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
-      return waitForAmmoInstantiation(fetchWasm(''));
-    });
     return promise.then(function () {
       return _defineProperty({
         start: start
       }, 'import', topLevelImport);
     });
 
-    function start(_ref4) {
-      var findCanvas = _ref4.findCanvas;
+    function start(_ref3) {
+      var findCanvas = _ref3.findCanvas;
       var settings;
       var cc;
-      var date;
       return Promise.resolve().then(function () {
-        date = new Date();
-        console.log("topLevelImport 1: " + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
         return topLevelImport('cc');
       }).then(function (engine) {
         cc = engine;
-        date = new Date();
-        console.log("loadSettingsJson"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
         return loadSettingsJson(cc);
       }).then(function () {
-        date = new Date();
         settings = window._CCSettings;
-        console.log("initializeGame"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
         return initializeGame(cc, settings, findCanvas).then(function () {
           if (settings.scriptPackages) {
-            date = new Date();
-            console.log("loadModulePacks"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
             return loadModulePacks(settings.scriptPackages);
           }
         }).then(function () {
-          date = new Date();
-          console.log("loadJsList"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
           return loadJsList(settings.jsList);
         }).then(function () {
-          date = new Date();
-          console.log("loadAssetBundle"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
           return loadAssetBundle(settings.hasResourcesBundle, settings.hasStartSceneBundle);
         }).then(function () {
           return cc.game.run(function () {
-            date = new Date();
-            console.log("onGameStarted"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
             return onGameStarted(cc, settings);
           });
         });
@@ -184,15 +158,13 @@ System.register([], function (_export, _context) {
   }
 
   function onGameStarted(cc, settings) {
-	document.getElementById("splash").style.display = 'block';
     window._CCSettings = undefined;
     cc.view.resizeWithBrowserSize(true);
     var launchScene = settings.launchScene; // load scene
 
     cc.director.loadScene(launchScene, null, function () {
-      cc.view.setDesignResolutionSize(1080, 1920, 2);
-	  document.getElementById("splash").style.display = 'none';
-      //console.log("Success to load scene: ".concat(launchScene));
+      cc.view.setDesignResolutionSize(960, 640, 4);
+      console.log("Success to load scene: ".concat(launchScene));
     });
   }
 
