@@ -8,12 +8,15 @@ System.register([], function (_export, _context) {
         fetchWasm = _ref.fetchWasm;
     // NOTE: before here we shall not import any module!
     var promise = Promise.resolve();
+    var date;
     promise = promise.then(function () {
-      console.log('topLevelImport' + Date()[Symbol.toPrimitive]('string'));
+      date = new Date();
+      console.log('topLevelImport ' + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
       return topLevelImport('wait-for-ammo-instantiation');
     }).then(function (_ref2) {
       var waitForAmmoInstantiation = _ref2["default"];
-      console.log("waitForAmmoInstantiation");
+      date = new Date();
+      console.log("waitForAmmoInstantiation" + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
       return waitForAmmoInstantiation(fetchWasm(''));
     });
     return promise.then(function () {
@@ -26,30 +29,38 @@ System.register([], function (_export, _context) {
       var findCanvas = _ref4.findCanvas;
       var settings;
       var cc;
+      var date;
       return Promise.resolve().then(function () {
-        console.log("topLevelImport 1" + Date()[Symbol.toPrimitive]('string'));
+        date = new Date();
+        console.log("topLevelImport 1: " + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
         return topLevelImport('cc');
       }).then(function (engine) {
         cc = engine;
-        console.log("loadSettingsJson" + Date()[Symbol.toPrimitive]('string'));
+        date = new Date();
+        console.log("loadSettingsJson"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
         return loadSettingsJson(cc);
       }).then(function () {
+        date = new Date();
         settings = window._CCSettings;
-        console.log("initializeGame" + Date()[Symbol.toPrimitive]('string'));
+        console.log("initializeGame"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
         return initializeGame(cc, settings, findCanvas).then(function () {
           if (settings.scriptPackages) {
-            console.log("loadModulePacks" + Date()[Symbol.toPrimitive]('string'));
+            date = new Date();
+            console.log("loadModulePacks"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
             return loadModulePacks(settings.scriptPackages);
           }
         }).then(function () {
-          console.log("loadJsList" + Date()[Symbol.toPrimitive]('string'));
+          date = new Date();
+          console.log("loadJsList"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
           return loadJsList(settings.jsList);
         }).then(function () {
-          console.log("loadAssetBundle" + Date()[Symbol.toPrimitive]('string'));
+          date = new Date();
+          console.log("loadAssetBundle"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
           return loadAssetBundle(settings.hasResourcesBundle, settings.hasStartSceneBundle);
         }).then(function () {
           return cc.game.run(function () {
-            console.log("onGameStarted" + Date()[Symbol.toPrimitive]('string'));
+            date = new Date();
+            console.log("onGameStarted"  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
             return onGameStarted(cc, settings);
           });
         });
