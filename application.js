@@ -4,6 +4,9 @@ System.register([], function (_export, _context) {
   function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
   function createApplication(_ref) {
+    var date = new Date();
+    console.log('createApplication ' + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
+
     var loadJsListFile = _ref.loadJsListFile,
         fetchWasm = _ref.fetchWasm;
     // NOTE: before here we shall not import any module!
@@ -15,6 +18,9 @@ System.register([], function (_export, _context) {
     });
 
     function start(_ref3) {
+      var date = new Date();
+      console.log('start ' + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
+
       var findCanvas = _ref3.findCanvas;
       var settings;
       var cc;
@@ -35,6 +41,8 @@ System.register([], function (_export, _context) {
           return loadAssetBundle(settings.hasResourcesBundle, settings.hasStartSceneBundle);
         }).then(function () {
           return cc.game.run(function () {
+            date = new Date();
+            console.log('start ' + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
             return onGameStarted(cc, settings);
           });
         });
