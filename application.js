@@ -162,9 +162,12 @@ System.register([], function (_export, _context) {
     cc.view.resizeWithBrowserSize(true);
     var launchScene = settings.launchScene; // load scene
 
+    var date = new Date();
+    console.log("onGameStarted "  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
     cc.director.loadScene(launchScene, null, function () {
       cc.view.setDesignResolutionSize(960, 640, 4);
       console.log("Success to load scene: ".concat(launchScene));
+      console.log("onGameStarted "  + "minutes: " + date.getMinutes() + "seconds: " +date.getSeconds());
     });
   }
 
