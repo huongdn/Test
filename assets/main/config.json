@@ -1,1 +1,57 @@
-{"importBase":"import","nativeBase":"native","name":"main","deps":[],"uuids":["0bd4b52e9","868Hf8rwpODolim9DymOqa","fdjsU2o1RKF5x0TziDw3jI"],"paths":{"2":["db:/internal/default_renderpipeline/builtin-forward",0]},"scenes":{"db://assets/scene.scene":1},"packs":{"0bd4b52e9":["1","2"]},"versions":{"import":[],"native":[]},"redirect":[],"debug":false,"extensionMap":{},"types":["cc.RenderPipeline"]}
+{
+    "importBase": "import",
+    "nativeBase": "native",
+    "name": "main",
+    "deps": [],
+    "uuids": [
+        "0c5610a9a",
+        "0f039991-f054-4857-a125-ab1c8917dee3",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@6c48a",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "414930b2-bdee-4d72-8fbe-41df604956fd",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@6c48a",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+        "86f077fc-af0a-4e0e-8962-9bd0f298ea9a",
+        "951249e0-9f16-456d-8b85-a6ca954da16b",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@6c48a",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
+        "fd8ec536-a354-4a17-9c74-4f3883c378c8"
+    ],
+    "paths": {
+        "fd8ec536-a354-4a17-9c74-4f3883c378c8": [
+            "db:/internal/default_renderpipeline/builtin-forward",
+            "cc.RenderPipeline"
+        ]
+    },
+    "scenes": {
+        "db://assets/scenes/menuScene.scene": "0f039991-f054-4857-a125-ab1c8917dee3",
+        "db://assets/scenes/gameScene.scene": "414930b2-bdee-4d72-8fbe-41df604956fd",
+        "db://assets/scenes/mainScene.scene": "86f077fc-af0a-4e0e-8962-9bd0f298ea9a"
+    },
+    "packs": {
+        "0c5610a9a": [
+            "0f039991-f054-4857-a125-ab1c8917dee3",
+            "20835ba4-6145-4fbc-a58a-051ce700aa3e",
+            "20835ba4-6145-4fbc-a58a-051ce700aa3e@6c48a",
+            "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+            "414930b2-bdee-4d72-8fbe-41df604956fd",
+            "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8",
+            "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@6c48a",
+            "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+            "86f077fc-af0a-4e0e-8962-9bd0f298ea9a",
+            "951249e0-9f16-456d-8b85-a6ca954da16b",
+            "951249e0-9f16-456d-8b85-a6ca954da16b@6c48a",
+            "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
+            "fd8ec536-a354-4a17-9c74-4f3883c378c8"
+        ]
+    },
+    "versions": {
+        "import": [],
+        "native": []
+    },
+    "redirect": [],
+    "debug": true,
+    "extensionMap": {}
+}
