@@ -63,19 +63,74 @@ System.register("chunks:///_virtual/Defines.ts", ['./rollupPluginModLoBabelHelpe
   };
 });
 
-System.register("chunks:///_virtual/main", ['./Defines.ts', './ScenesMgr.ts'], function () {
+System.register("chunks:///_virtual/main", ['./Defines.ts', './ScenesMgr.ts', './mainScene.ts'], function () {
   'use strict';
 
   return {
-    setters: [null, null],
+    setters: [null, null, null],
     execute: function () {}
+  };
+});
+
+System.register("chunks:///_virtual/mainScene.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  'use strict';
+
+  var _inheritsLoose, cclegacy, _decorator, game, Component;
+
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      game = module.game;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _class;
+
+      cclegacy._RF.push({}, "1bf28vHI8pG4Ltrsx3BXMLm", "mainScene", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var mainScene = exports('mainScene', (_dec = ccclass('mainScene'), _dec(_class = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(mainScene, _Component);
+
+        function mainScene() {
+          return _Component.apply(this, arguments) || this;
+        }
+
+        var _proto = mainScene.prototype;
+
+        _proto.start = function start() {
+          this.node.removeFromParent();
+          game.addPersistRootNode(this.node);
+          window.onpagehide(this.showLogOnHide.bind(this));
+          window.onpagehide(this.showLogOnShow.bind(this));
+        };
+
+        _proto.update = function update(deltaTime) {};
+
+        _proto.showLogOnHide = function showLogOnHide() {
+          console.log('On hide');
+        };
+
+        _proto.showLogOnShow = function showLogOnShow() {
+          console.log('On Show');
+        };
+
+        return mainScene;
+      }(Component)) || _class));
+
+      cclegacy._RF.pop();
+    }
   };
 });
 
 System.register("chunks:///_virtual/ScenesMgr.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './Defines.ts'], function (exports) {
   'use strict';
 
-  var _inheritsLoose, cclegacy, _decorator, Button, director, Component, SCENE;
+  var _inheritsLoose, cclegacy, _decorator, Button, assetManager, director, Component, SCENE;
 
   return {
     setters: [function (module) {
@@ -84,6 +139,7 @@ System.register("chunks:///_virtual/ScenesMgr.ts", ['./rollupPluginModLoBabelHel
       cclegacy = module.cclegacy;
       _decorator = module._decorator;
       Button = module.Button;
+      assetManager = module.assetManager;
       director = module.director;
       Component = module.Component;
     }, function (module) {
@@ -120,8 +176,13 @@ System.register("chunks:///_virtual/ScenesMgr.ts", ['./rollupPluginModLoBabelHel
 
         _proto.gotoScene = function gotoScene(scene) {
           if (Object.values(SCENE).includes(scene)) {
-            console.log("loadScene: " + scene);
-            director.loadScene(scene);
+            console.log("loadScene: " + scene); // director.loadScene(scene);
+
+            assetManager.loadBundle('https://storage.googleapis.com/huongdn_g4b/menuScene', function (err, bundle) {
+              bundle.loadScene('menuScene', function (err, scene) {
+                director.runScene(scene);
+              });
+            });
           } else {
             console.log("Can find Scene: " + scene);
           }

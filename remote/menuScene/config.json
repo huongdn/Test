@@ -1,0 +1,33 @@
+{
+    "importBase": "import",
+    "nativeBase": "native",
+    "name": "menuScene",
+    "deps": [
+        "main"
+    ],
+    "uuids": [
+        "0f039991-f054-4857-a125-ab1c8917dee3",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941"
+    ],
+    "paths": {},
+    "scenes": {
+        "db://assets/menuScene/scenes/menuScene.scene": "0f039991-f054-4857-a125-ab1c8917dee3"
+    },
+    "packs": {},
+    "versions": {
+        "import": [],
+        "native": []
+    },
+    "redirect": [
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "0",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+        "0",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
+        "0"
+    ],
+    "debug": true,
+    "extensionMap": {}
+}

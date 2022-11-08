@@ -10,10 +10,12 @@
     "exactFitScreen": true,
     "bundleVers": {},
     "subpackages": [],
-    "remoteBundles": [],
+    "remoteBundles": [
+        "menuScene"
+    ],
     "hasResourcesBundle": false,
     "hasStartSceneBundle": false,
-    "launchScene": "db://assets/scenes/mainScene.scene",
+    "launchScene": "db://assets/mainScene/scenes/mainScene.scene",
     "jsList": [],
     "moduleIds": [],
     "renderPipeline": "",

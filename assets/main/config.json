@@ -4,8 +4,7 @@
     "name": "main",
     "deps": [],
     "uuids": [
-        "0c5610a9a",
-        "0f039991-f054-4857-a125-ab1c8917dee3",
+        "01389948d",
         "20835ba4-6145-4fbc-a58a-051ce700aa3e",
         "20835ba4-6145-4fbc-a58a-051ce700aa3e@6c48a",
         "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
@@ -26,13 +25,11 @@
         ]
     },
     "scenes": {
-        "db://assets/scenes/menuScene.scene": "0f039991-f054-4857-a125-ab1c8917dee3",
-        "db://assets/scenes/gameScene.scene": "414930b2-bdee-4d72-8fbe-41df604956fd",
-        "db://assets/scenes/mainScene.scene": "86f077fc-af0a-4e0e-8962-9bd0f298ea9a"
+        "db://assets/gameScene/scenes/gameScene.scene": "414930b2-bdee-4d72-8fbe-41df604956fd",
+        "db://assets/mainScene/scenes/mainScene.scene": "86f077fc-af0a-4e0e-8962-9bd0f298ea9a"
     },
     "packs": {
-        "0c5610a9a": [
-            "0f039991-f054-4857-a125-ab1c8917dee3",
+        "01389948d": [
             "20835ba4-6145-4fbc-a58a-051ce700aa3e",
             "20835ba4-6145-4fbc-a58a-051ce700aa3e@6c48a",
             "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
