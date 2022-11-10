@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>3</title>
+  <title>4</title>
 
   <!--http://www.html5rocks.com/en/mobile/mobifying/-->
   <meta name="viewport"
@@ -38,10 +38,11 @@
 </head>
 <body>
   <div id="GameDiv">
-      <div id="Cocos3dGameContainer">
-        <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
-      </div>
+    <video id="video" style="position: absolute; left: 0px; display: none;"></video>
+    <div id="Cocos3dGameContainer">
+      <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
     </div>
+  </div>
   
 <script src="./vconsole.min.js"></script>
 <script type="text/javascript">
