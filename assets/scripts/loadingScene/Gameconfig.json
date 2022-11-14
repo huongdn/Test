@@ -1,0 +1,8 @@
+{
+  "scene":{
+    "loadingScene":{"name": "loading", "isBundled": false, "bundlePath": "loading"},
+    "mainMenuScene":{"name": "mainMenu", "isBundled": true, "bundlePath": "mainMenu"},
+    "planetExploreScene":{"name": "planetExplore", "isBundled": true, "bundlePath": "planetExplore"},
+    "spaceExploreScene":{"name": "spaceExplore", "isBundled": true, "bundlePath": "spaceExplore"}
+  }
+}
