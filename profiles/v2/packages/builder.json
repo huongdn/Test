@@ -5,15 +5,28 @@
   },
   "common": {
     "outputName": "web-mobile-002",
-    "mainBundleCompressionType": "merge_dep",
+    "mainBundleCompressionType": "merge_all_json",
     "platform": "web-mobile",
     "scenes": [
       {
-        "url": "db://assets/scene/main.scene",
-        "uuid": "0d539084-2feb-4111-a9cd-f5b28423e501",
-        "inBundle": false
+        "url": "db://assets/scene/loadingScene/loadingScene.scene",
+        "uuid": "e354dd97-0809-4d54-83d4-cf7948b942a7"
+      },
+      {
+        "url": "db://assets/scene/mainMenu/mainMenu.scene",
+        "uuid": "0d539084-2feb-4111-a9cd-f5b28423e501"
+      },
+      {
+        "url": "db://assets/scene/planetExplore/planetExplore.scene",
+        "uuid": "a0756c18-11fb-46cf-9374-c68a11921468"
+      },
+      {
+        "url": "db://assets/scene/spaceExplore/spaceExplore.scene",
+        "uuid": "d89cb5df-a9d6-482f-922a-b1981fbf8c06"
       }
-    ]
+    ],
+    "startScene": "e354dd97-0809-4d54-83d4-cf7948b942a7",
+    "name": "wechat-applaydu-space-game"
   },
   "BuildTaskManager": {
     "taskMap": {
@@ -21,9 +34,9 @@
         "id": "1665039626381",
         "progress": 1,
         "state": "success",
-        "message": "11-11-2022 16:27 Build success in 9934 ms!",
+        "message": "11-14-2022 16:43 Build success in 6685 ms!",
         "options": {
-          "name": "LearnCocosAR",
+          "name": "wechat-applaydu-space-game",
           "platform": "web-mobile",
           "buildPath": "project://build",
           "debug": false,
@@ -31,18 +44,33 @@
           "skipCompressTexture": false,
           "sourceMaps": false,
           "replaceSplashScreen": false,
-          "mainBundleCompressionType": "merge_dep",
+          "mainBundleCompressionType": "merge_all_json",
           "mainBundleIsRemote": false,
           "mergeStartScene": false,
           "experimentalEraseModules": false,
           "compressTexture": true,
           "packAutoAtlas": true,
-          "startScene": "0d539084-2feb-4111-a9cd-f5b28423e501",
+          "startScene": "e354dd97-0809-4d54-83d4-cf7948b942a7",
           "scenes": [
             {
-              "url": "db://assets/scene/main.scene",
-              "uuid": "0d539084-2feb-4111-a9cd-f5b28423e501",
+              "url": "db://assets/scene/loadingScene/loadingScene.scene",
+              "uuid": "e354dd97-0809-4d54-83d4-cf7948b942a7",
               "inBundle": false
+            },
+            {
+              "url": "db://assets/scene/mainMenu/mainMenu.scene",
+              "uuid": "0d539084-2feb-4111-a9cd-f5b28423e501",
+              "inBundle": true
+            },
+            {
+              "url": "db://assets/scene/planetExplore/planetExplore.scene",
+              "uuid": "a0756c18-11fb-46cf-9374-c68a11921468",
+              "inBundle": true
+            },
+            {
+              "url": "db://assets/scene/spaceExplore/spaceExplore.scene",
+              "uuid": "d89cb5df-a9d6-482f-922a-b1981fbf8c06",
+              "inBundle": true
             }
           ],
           "outputName": "web-mobile",
@@ -59,7 +87,7 @@
             }
           }
         },
-        "time": "11-11-2022 16:27",
+        "time": "11-14-2022 16:43",
         "dirty": false
       }
     }

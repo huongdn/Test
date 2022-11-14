@@ -1,6 +1,6 @@
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
-import { SCENE, ScenesManager } from '../loadingScene/scripts/ScenesManager';
+import { SCENE, ScenesManager } from '../loadingScene/ScenesManager';
 
 @ccclass('PlanetExplore')
 export class PlanetExplore extends Component {
