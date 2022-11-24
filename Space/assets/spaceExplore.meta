@@ -1,0 +1,15 @@
+{
+  "ver": "1.1.0",
+  "importer": "directory",
+  "imported": true,
+  "uuid": "13948e74-edf1-483a-9614-e00f46a8dd9c",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "compressionType": {
+      "web-mobile": "merge_all_json"
+    },
+    "isRemoteBundle": {},
+    "isBundle": true
+  }
+}

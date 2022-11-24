@@ -1,0 +1,75 @@
+{
+  "ver": "1.0.23",
+  "importer": "image",
+  "imported": true,
+  "uuid": "3bbfa5d7-ded0-4f7c-bd6a-fcfc6ecd999b",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "3bbfa5d7-ded0-4f7c-bd6a-fcfc6ecd999b@6c48a",
+      "displayName": "Meteorite",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "clamp-to-edge",
+        "wrapModeT": "clamp-to-edge",
+        "imageUuidOrDatabaseUri": "3bbfa5d7-ded0-4f7c-bd6a-fcfc6ecd999b",
+        "isUuid": true,
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0
+      },
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "3bbfa5d7-ded0-4f7c-bd6a-fcfc6ecd999b@f9941",
+      "displayName": "Meteorite",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 1.5,
+        "offsetY": 8.5,
+        "trimX": 11,
+        "trimY": 11,
+        "width": 234,
+        "height": 127,
+        "rawWidth": 253,
+        "rawHeight": 166,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3bbfa5d7-ded0-4f7c-bd6a-fcfc6ecd999b@6c48a",
+        "atlasUuid": ""
+      },
+      "ver": "1.0.9",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "fixAlphaTransparencyArtifacts": true,
+    "hasAlpha": true,
+    "redirect": "3bbfa5d7-ded0-4f7c-bd6a-fcfc6ecd999b@f9941"
+  }
+}

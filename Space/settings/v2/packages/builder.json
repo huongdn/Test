@@ -1,0 +1,9 @@
+{
+  "__version__": "1.3.2",
+  "splash-setting": {
+    "url": "D:\\G4B\\wechatapplaydu-space-game\\assets\\loadingScene\\assets\\textures\\bg\\Loading.png",
+    "totalTime": 1000,
+    "displayRatio": 2,
+    "displayWatermark": false
+  }
+}
