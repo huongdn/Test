@@ -18,5 +18,22 @@
     "legacyFbxImporter": {
       "visible": true
     }
+  },
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "SpaceShip"
+      },
+      {
+        "index": 2,
+        "name": "Obstacle"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 3,
+      "1": 5,
+      "2": 2
+    }
   }
 }
