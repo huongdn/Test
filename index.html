@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Cocos Creator | wechat applaydu space game</title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"/>
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+  <link rel="stylesheet" type="text/css" href="custom-style.css"/>
+  <link rel="icon" href="favicon.ico" />
+  <script src="jweixin-1.6.0.js"></script>
+  <script src="ua-parser.min.js"></script>
+  <script>
+    // embed uuidv4.js to save 1 html request
+    let getRandomValues;
+    const rnds8 = new Uint8Array(16);
+    function rng() {
+      // lazy load so that environments that need to polyfill have a chance to do so
+      if (!getRandomValues) {
+        // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation.
+        getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto);
+      
+        if (!getRandomValues) {
+          throw new Error('crypto.getRandomValues() not supported.');
+        }
+      }
+    
+      return getRandomValues(rnds8);
+    }
+    
+    const byteToHex = [];
+
+    for (let i = 0; i < 256; ++i) {
+      byteToHex.push((i + 0x100).toString(16).slice(1));
+    }
+
+    function unsafeStringify(arr) {
+      return (byteToHex[arr[0]] + byteToHex[arr[1]] + byteToHex[arr[2]] + byteToHex[arr[3]] + '-' + byteToHex[arr[4]] + byteToHex[arr[5]] + '-' + byteToHex[arr[6]] + byteToHex[arr[7]] + '-' + byteToHex[arr[8]] + byteToHex[arr[9]] + '-' + byteToHex[arr[10]] + byteToHex[arr[11]] + byteToHex[arr[12]] + byteToHex[arr[13]] + byteToHex[arr[14]] + byteToHex[arr[15]]).toLowerCase();
+    }
+
+    function uuidv4() {
+    
+      const rnds = rng();
+    
+      rnds[6] = rnds[6] & 0x0f | 0x40;
+      rnds[8] = rnds[8] & 0x3f | 0x80;
+    
+      return unsafeStringify(rnds);
+    }
+
+	  var parser = new UAParser();
+    // window.GLOBAL_ETS_URL = "https://ets.ferrero-kinder.cn/";
+    window.GLOBAL_ANON_ID = localStorage.getItem("uuid");
+    window.GLOBAL_TRACKING_TIME_START = Date.now();
+    if (window.GLOBAL_ANON_ID == null) {
+      window.GLOBAL_ANON_ID = uuidv4();
+
+      localStorage.setItem("uuid", window.GLOBAL_ANON_ID);
+    }
+    console.log("uuid: " + window.GLOBAL_ANON_ID);
+    
+
+
+    window.GLOBAL_SESSION_ID = localStorage.getItem("ses_id");
+
+    if (window.GLOBAL_SESSION_ID == null) {
+      window.GLOBAL_SESSION_ID = 0;
+    }
+    else {
+      window.GLOBAL_SESSION_ID++;
+    }
+    console.log(window.GLOBAL_SESSION_ID);
+    localStorage.setItem("ses_id", window.GLOBAL_SESSION_ID);
+	
+	  var deviceInfo = parser.getResult();
+	  window.GLOBAL_BROWSER_NAME = deviceInfo.browser.name;
+    //console.log(window.GLOBAL_BROWSER_NAME);
+	  window.GLOBAL_APP_VERSION = deviceInfo.browser.version;
+    //console.log("App ver " + window.GLOBAL_APP_VERSION);
+	  window.GLOBAL_APP_FIRMWARE = "" + deviceInfo.os.name;
+	  window.GLOBAL_APP_FIRMWARE_VERSION = deviceInfo.os.version + " " + deviceInfo.cpu.architecture
+	  if(deviceInfo.device.model != null){
+	  	window.GLOBAL_APP_NAME_DEVICE += deviceInfo.device.model;
+	  }
+	  if(deviceInfo.device.type != null){
+	  	window.GLOBAL_APP_NAME_DEVICE += deviceInfo.device.type;
+	  }
+	  if(window.GLOBAL_APP_NAME_DEVICE == null){
+	  	window.GLOBAL_APP_NAME_DEVICE = "undefined";
+	  }
+
+	  window.GLOBAL_APP_MANUFACTURER = deviceInfo.device.vendor;
+  
+	  //console.log(window.GLOBAL_APP_FIRMWARE);
+	  //console.log(window.GLOBAL_APP_FIRMWARE_VERSION);
+	  //console.log(window.GLOBAL_APP_MANUFACTURER);
+	  console.log(window.GLOBAL_APP_NAME_DEVICE);
+    
+  </script>
+</head>
+
+<body>
+  <!-- capture camera from device -->
+  <video id="video" style="position: absolute; left: 0px; display: none;"></video>
+  
+  <!-- render image from canvas HTML -->
+  <canvas id="canvas" width="960" height="1440"></canvas>
+  
+  <!-- Splash scene -->
+  <div id="splashBG" class="home-bg"></div>
+  
+  <!-- Earth spin -->
+  <svg id="splashEarthSpin" viewBox="0 0 720 1280" xmlns="http://www.w3.org/2000/svg">
+    <image id="KinderLogo" href="Space_ship.png" height="600" width="400" y="30" x="150" />
+    <image id="KinderLogo" href="Kinder_logo.png" height="500" width="356" y="320" x="182" />
+    <image id="EarthSpin" href="Earth.png" height="720" width="623" y="850" x="48.5" />
+  </svg>
+
+  <!-- Canvas game of cocos creator -->
+  <div id="GameDiv">
+      <div id="Cocos3dGameContainer">
+          <canvas
+              id="GameCanvas"
+              oncontextmenu="event.preventDefault()"
+              tabindex="0"
+          ></canvas>
+      </div>
+  </div>
+  
+  <!-- Show the photho that player can hold and save  -->
+  <div id="imagePhoto">
+    <div id="backGround"><!-- backGround will be set in game code --></div>
+    <img id="tutorialImg" src="image_tutorial.png">
+    <img id="coveredImage">
+    <button id="button" type="button" onclick="myFunction()">
+      <image src="UI_btn_close.png" style="width : 13vw; height : 13vw;">
+    </button>
+  </div>
+
+  <!--function of button close to hinden the photo --> 
+  <script>
+    function myFunction() {
+      document.getElementById("imagePhoto").style.display = 'none';
+    }
+  </script>
+  
+<!-- Polyfills bundle. -->
+<script src="src/polyfills.bundle.js" charset="utf-8"> </script>
+
+<!-- SystemJS support. -->
+<script src="src/system.bundle.js" charset="utf-8"> </script>
+
+<!-- Import map -->
+<script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
+
+<script>
+    System.import('./index.js').catch(function(err) { console.error(err); })
+</script>
+
+</body>
+</html>
